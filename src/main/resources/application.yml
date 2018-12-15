@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: omwnta
+  liquibase:
+    changelog: classpath:/db/changelog/changelogs-master.groovy
+---
+spring:
+  profiles: development
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/omwnta
+    username: postgres
+    password: password
+---
+profiles: production
+datasource:
+  driverClassName: org.postgresql.Driver
+  url: jdbc:postgres://ibmkmbzcgkaqxx:bef1c0de74f703df0c9393e7d538bbab9d9e36e372648074fee4025dc92197e5@ec2-107-21-125-209.compute-1.amazonaws.com:5432/d3iil4mo7um50s
+  username: ibmkmbzcgkaqxx
+  password: bef1c0de74f703df0c9393e7d538bbab9d9e36e372648074fee4025dc92197e5
