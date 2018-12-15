@@ -4,4 +4,5 @@ import com.server.omwnta.dto.MessageDto
 
 interface UserService {
     fun getAllMessages() : List<MessageDto>
+    fun postMessage(messageDto: MessageDto) : MessageDto
 }

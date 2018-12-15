@@ -12,6 +12,8 @@ class Message (
         private val author: String,
         @Id @GeneratedValue(strategy = GenerationType.AUTO) private val id: Long = -1)
 {
+    constructor(messageDto : MessageDto) : this(messageDto.content, messageDto.author, messageDto.id)
+
     fun toDto() : MessageDto {
 
         return MessageDto(content, author, id)
