@@ -18,3 +18,21 @@ datasource:
   url: jdbc:postgres://ibmkmbzcgkaqxx:bef1c0de74f703df0c9393e7d538bbab9d9e36e372648074fee4025dc92197e5@ec2-107-21-125-209.compute-1.amazonaws.com:5432/d3iil4mo7um50s
   username: ibmkmbzcgkaqxx
   password: bef1c0de74f703df0c9393e7d538bbab9d9e36e372648074fee4025dc92197e5
+---
+spring:
+  profiles: test
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:app_db;DB_CLOSE_ON_EXIT=FALSE;MVCC=TRUE;LOCK_TIMEOUT=10000;INIT=create domain if not exists jsonb as other;
+    username: sa
+    password:
+hibernate:
+  dialect: org.hibernate.dialect.H2Dialect
+  hbm2ddl:
+    auto: validate
+  ejb:
+    naming_strategy: EJB3NamingStrategy
+  showSql: true
+  formatSql: true
+  id:
+    new_generator_mappings: true

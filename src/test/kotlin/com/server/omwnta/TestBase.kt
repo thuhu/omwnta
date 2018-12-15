@@ -6,7 +6,6 @@ import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
-@SpringBootTest
-@ActiveProfiles("Test")
-class TestBase {
-}
+@SpringBootTest(classes = arrayOf(OmwntaApplication::class), webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ActiveProfiles("test")
+class TestBase
