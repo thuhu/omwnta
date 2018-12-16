@@ -10,12 +10,20 @@ import javax.persistence.GenerationType
 class Message (
         private val content: String,
         private val author: String,
+        private val altitude: Double,
+        private val longitude: Double,
         @Id @GeneratedValue(strategy = GenerationType.AUTO) private val id: Long = -1)
 {
-    constructor(messageDto : MessageDto) : this(messageDto.content, messageDto.author, messageDto.id)
+    constructor(messageDto : MessageDto)
+            : this(messageDto.content,
+            messageDto.author,
+            messageDto.altitude,
+            messageDto.longitude,
+            messageDto.id
+    )
 
     fun toDto() : MessageDto {
 
-        return MessageDto(content, author, id)
+        return MessageDto(content, author, altitude, longitude, id)
     }
 }
