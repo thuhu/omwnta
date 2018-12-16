@@ -22,17 +22,18 @@ datasource:
 spring:
   profiles: test
   datasource:
-    driverClassName: org.h2.Driver
+    driver-class-name: org.h2.Driver
+    password: ''
     url: jdbc:h2:mem:app_db;DB_CLOSE_ON_EXIT=FALSE;MVCC=TRUE;LOCK_TIMEOUT=10000;INIT=create domain if not exists jsonb as other;
     username: sa
-    password:
 hibernate:
   dialect: org.hibernate.dialect.H2Dialect
-  hbm2ddl:
-    auto: validate
   ejb:
     naming_strategy: EJB3NamingStrategy
-  showSql: true
-  formatSql: true
+  format_sql: true
+  hbm2ddl:
+    auto: validate
   id:
     new_generator_mappings: true
+  show_sql: true
+---
