@@ -1,7 +1,6 @@
 package com.server.omwnta.service
 
 import com.server.omwnta.TestBase
-import com.server.omwnta.dto.MessageDto
 import org.junit.Assert.assertNotNull
 import org.junit.Test
 import org.springframework.beans.factory.annotation.Autowired
