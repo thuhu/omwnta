@@ -1,0 +1,3 @@
+package com.server.omwnta.common
+
+interface SimpleServiceRepository<SimpleServiceDomainObject>: BaseRepository<SimpleServiceDomainObject>
