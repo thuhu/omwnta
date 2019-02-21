@@ -1,5 +1,6 @@
 package com.server.omwnta.domain
 
+import com.server.omwnta.common.Domain
 import com.server.omwnta.dto.MessageDto
 import javax.persistence.Entity
 import javax.persistence.Id
@@ -12,7 +13,7 @@ class Message (
         private val author: String,
         private val altitude: Double,
         private val longitude: Double,
-        @Id @GeneratedValue(strategy = GenerationType.AUTO) private val id: Long = -1)
+        @Id @GeneratedValue(strategy = GenerationType.AUTO) private val id: Long = -1) : Domain<MessageDto>()
 {
     constructor(messageDto : MessageDto)
             : this(messageDto.content,
@@ -22,7 +23,7 @@ class Message (
             messageDto.id
     )
 
-    fun toDto() : MessageDto {
+    override fun toDTO() : MessageDto {
 
         return MessageDto(content, author, altitude, longitude, id)
     }
